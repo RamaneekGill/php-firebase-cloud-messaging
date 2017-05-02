@@ -2,6 +2,7 @@
 
 namespace sngrl\PhpFirebaseCloudMessaging\Tests;
 
+use Mockery;
 use GuzzleHttp;
 use GuzzleHttp\Psr7\Response;
 use sngrl\PhpFirebaseCloudMessaging\Client;
@@ -20,17 +21,22 @@ class ClientTest extends TestCase
 
     public function testSendConstruesValidJsonForNotificationWithTopic()
     {
+        $response = Mockery::mock(Response::class);
+
         $apiKey = 'key';
         $headers = array(
             'Authorization' => sprintf('key=%s', $apiKey),
             'Content-Type' => 'application/json'
         );
 
-        $guzzle = \Mockery::mock(\GuzzleHttp\Client::class);
+        $guzzle = Mockery::mock(\GuzzleHttp\Client::class);
         $guzzle->shouldReceive('post')
             ->once()
-            ->with(Client::DEFAULT_API_URL, array('headers' => $headers, 'body' => '{"to":"\\/topics\\/test"}'))
-            ->andReturn(\Mockery::mock(Response::class));
+            ->with(
+                Client::DEFAULT_API_URL,
+                ['headers' => $headers, 'body' => '{"to":"\\/topics\\/test"}']
+            )
+            ->andReturn($response);
 
         $this->fixture->injectGuzzleHttpClient($guzzle);
         $this->fixture->setApiKey($apiKey);
@@ -38,6 +44,8 @@ class ClientTest extends TestCase
         $message = new Message();
         $message->addRecipient(new Topic('test'));
 
-        $this->fixture->send($message);
+        $result = $this->fixture->send($message);
+
+        $this->assertSame($response, $result);
     }
 }
