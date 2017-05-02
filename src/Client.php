@@ -79,7 +79,11 @@ class Client implements ClientInterface
      */
     public function addTopicSubscription($topic_id, $recipients_tokens)
     {
-        return $this->processTopicSubscription($topic_id, $recipients_tokens, self::DEFAULT_TOPIC_ADD_SUBSCRIPTION_API_URL);
+        return $this->processTopicSubscription(
+            $topic_id,
+            $recipients_tokens,
+            self::DEFAULT_TOPIC_ADD_SUBSCRIPTION_API_URL
+        );
     }
 
 
@@ -91,7 +95,11 @@ class Client implements ClientInterface
      */
     public function removeTopicSubscription($topic_id, $recipients_tokens)
     {
-        return $this->processTopicSubscription($topic_id, $recipients_tokens, self::DEFAULT_TOPIC_REMOVE_SUBSCRIPTION_API_URL);
+        return $this->processTopicSubscription(
+            $topic_id,
+            $recipients_tokens,
+            self::DEFAULT_TOPIC_REMOVE_SUBSCRIPTION_API_URL
+        );
     }
 
 

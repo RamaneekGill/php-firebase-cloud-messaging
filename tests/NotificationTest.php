@@ -34,6 +34,9 @@ class NotificationTest extends TestCase
     public function testJsonSerializeWithContentAvailable()
     {
         $this->fixture->setContentAvailable(true);
-        $this->assertEquals(array('title' => 'foo', 'body' =>'bar', 'content_available' => true), $this->fixture->jsonSerialize());
+        $this->assertEquals(
+            ['title' => 'foo', 'body' =>'bar', 'content_available' => true],
+            $this->fixture->jsonSerialize()
+        );
     }
 }

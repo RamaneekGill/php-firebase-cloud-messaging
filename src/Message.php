@@ -171,8 +171,9 @@ class Message implements \JsonSerializable
             case Topic::class:
                 if (count($this->recipients) > 1) {
                     throw new \UnexpectedValueException(
-                        'Currently messages to target multiple topics do not work, but its obviously planned: '.
-                        'https://firebase.google.com/docs/cloud-messaging/topic-messaging#sending_topic_messages_from_the_server'
+                        'Currently messages to target multiple topics do not work, ' .
+                        'but its obviously planned: https://firebase.google.com/docs/' .
+                        'cloud-messaging/topic-messaging#sending_topic_messages_from_the_server'
                     );
                 }
                 return sprintf('/topics/%s', current($this->recipients)->getName());
@@ -184,7 +185,10 @@ class Message implements \JsonSerializable
 
                 break;
             default:
-                throw new \UnexpectedValueException('PhpFirebaseCloudMessaging only supports single topic and single device messages yet');
+                throw new \UnexpectedValueException(
+                    'PhpFirebaseCloudMessaging only supports single topic and ' .
+                    'single device messages yet'
+                );
                 break;
         }
         return null;
