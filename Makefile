@@ -1,4 +1,4 @@
-.PHONY: tests
+.PHONY: tests coverage fix
 
 tests:
 	vendor/bin/phpcs --standard=PSR2 --ignore=vendor --extensions=php .
@@ -9,4 +9,4 @@ coverage:
 	vendor/bin/phpunit --coverage-html coverage
 
 fix:
-	vendor/bin/php-cs-fixer --standard=PSR2 fix .
+	vendor/bin/php-cs-fixer fix .
