@@ -1,9 +1,10 @@
 <?php
+
 namespace sngrl\PhpFirebaseCloudMessaging\Tests;
 
 use sngrl\PhpFirebaseCloudMessaging\Notification;
 
-class NotificationTest extends PhpFirebaseCloudMessagingTestCase
+class NotificationTest extends TestCase
 {
     private $fixture;
 

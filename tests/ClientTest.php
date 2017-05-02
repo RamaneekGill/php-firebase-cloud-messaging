@@ -1,4 +1,5 @@
 <?php
+
 namespace sngrl\PhpFirebaseCloudMessaging\Tests;
 
 use sngrl\PhpFirebaseCloudMessaging\Client;
@@ -8,7 +9,7 @@ use sngrl\PhpFirebaseCloudMessaging\Message;
 use GuzzleHttp;
 use GuzzleHttp\Psr7\Response;
 
-class ClientTest extends PhpFirebaseCloudMessagingTestCase
+class ClientTest extends TestCase
 {
     private $fixture;
 

@@ -1,4 +1,5 @@
 <?php
+
 namespace sngrl\PhpFirebaseCloudMessaging\Tests;
 
 use sngrl\PhpFirebaseCloudMessaging\Recipient\Recipient;
@@ -7,7 +8,7 @@ use sngrl\PhpFirebaseCloudMessaging\Recipient\Topic;
 use sngrl\PhpFirebaseCloudMessaging\Notification;
 use sngrl\PhpFirebaseCloudMessaging\Recipient\Device;
 
-class MessageTest extends PhpFirebaseCloudMessagingTestCase
+class MessageTest extends TestCase
 {
     private $fixture;
 
@@ -19,20 +20,20 @@ class MessageTest extends PhpFirebaseCloudMessagingTestCase
 
     public function testThrowsExceptionWhenDifferentRecepientTypesAreRegistered()
     {
-        $this->setExpectedException(\InvalidArgumentException::class);
+        $this->expectException(\InvalidArgumentException::class);
         $this->fixture->addRecipient(new Topic('breaking-news'))
             ->addRecipient(new Recipient());
     }
 
     public function testThrowsExceptionWhenNoRecepientWasAdded()
     {
-        $this->setExpectedException(\UnexpectedValueException::class);
+        $this->expectException(\UnexpectedValueException::class);
         $this->fixture->jsonSerialize();
     }
 
     public function testThrowsExceptionWhenMultipleTopicsWereGiven()
     {
-        $this->setExpectedException(\UnexpectedValueException::class);
+        $this->expectException(\UnexpectedValueException::class);
         $this->fixture->addRecipient(new Topic('breaking-news'))
             ->addRecipient(new Topic('another topic'));
 
