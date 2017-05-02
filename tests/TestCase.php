@@ -1,6 +1,6 @@
 <?php
 
-namespace Sngrl\PhpFirebaseCloudMessaging\Tests;
+namespace Tests;
 
 use Mockery;
 use PHPUnit\Framework\TestCase as PHPUnitTestCase;

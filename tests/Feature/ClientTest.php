@@ -1,9 +1,10 @@
 <?php
 
-namespace Sngrl\PhpFirebaseCloudMessaging\Tests;
+namespace Tests\Feature;
 
 use Mockery;
 use GuzzleHttp;
+use Tests\TestCase;
 use GuzzleHttp\Psr7\Response;
 use Sngrl\PhpFirebaseCloudMessaging\Client;
 use Sngrl\PhpFirebaseCloudMessaging\Message;

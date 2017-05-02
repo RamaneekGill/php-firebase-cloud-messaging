@@ -1,7 +1,8 @@
 <?php
 
-namespace Sngrl\PhpFirebaseCloudMessaging\Tests;
+namespace Tests\Feature;
 
+use Tests\TestCase;
 use Sngrl\PhpFirebaseCloudMessaging\Message;
 use Sngrl\PhpFirebaseCloudMessaging\Notification;
 use Sngrl\PhpFirebaseCloudMessaging\Recipient\Topic;

@@ -1,9 +1,9 @@
 <?php
 
-namespace Sngrl\PhpFirebaseCloudMessaging\Tests;
+namespace Tests\Unit\Recipient;
 
 use Mockery;
-use Sngrl\PhpFirebaseCloudMessaging\Tests\TestCase;
+use Tests\TestCase;
 use Sngrl\PhpFirebaseCloudMessaging\Recipient\Device;
 
 class DeviceTest extends TestCase

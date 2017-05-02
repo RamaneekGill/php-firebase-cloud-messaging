@@ -27,7 +27,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Sngrl\\PhpFirebaseCloudMessaging\\Tests\\": "tests/"
+            "Tests\\": "tests/"
         }
     },
     "config": {

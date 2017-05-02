@@ -1,7 +1,8 @@
 <?php
 
-namespace Sngrl\PhpFirebaseCloudMessaging\Tests;
+namespace Tests\Feature;
 
+use Tests\TestCase;
 use Sngrl\PhpFirebaseCloudMessaging\Notification;
 
 class NotificationTest extends TestCase
