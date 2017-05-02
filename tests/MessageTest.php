@@ -22,7 +22,9 @@ class MessageTest extends TestCase
     {
         $this->expectException(\InvalidArgumentException::class);
         $this->fixture->addRecipient(new Topic('breaking-news'))
-            ->addRecipient(new Recipient());
+            ->addRecipient(new class() extends Recipient
+            {
+            });
     }
 
     public function testThrowsExceptionWhenNoRecepientWasAdded()
