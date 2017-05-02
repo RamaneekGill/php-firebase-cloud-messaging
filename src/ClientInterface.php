@@ -1,5 +1,6 @@
 <?php
-namespace sngrl\PhpFirebaseCloudMessaging;
+
+namespace Sngrl\PhpFirebaseCloudMessaging;
 
 use GuzzleHttp;
 
@@ -20,7 +21,7 @@ interface ClientInterface
      * @return \sngrl\PhpFirebaseCloudMessaging\Client
      */
     public function setApiKey($apiKey);
-    
+
 
     /**
      * people can overwrite the api url with a proxy server url of their own

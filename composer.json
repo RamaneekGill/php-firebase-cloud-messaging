@@ -22,12 +22,12 @@
     },
     "autoload": {
         "psr-4": {
-            "sngrl\\PhpFirebaseCloudMessaging\\": "src/"
+            "Sngrl\\PhpFirebaseCloudMessaging\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "sngrl\\PhpFirebaseCloudMessaging\\Tests\\": "tests/"
+            "Sngrl\\PhpFirebaseCloudMessaging\\Tests\\": "tests/"
         }
     },
     "config": {
