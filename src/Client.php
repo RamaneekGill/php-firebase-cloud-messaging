@@ -1,5 +1,6 @@
 <?php
-namespace sngrl\PhpFirebaseCloudMessaging;
+
+namespace Sngrl\PhpFirebaseCloudMessaging;
 
 use GuzzleHttp;
 
@@ -79,7 +80,11 @@ class Client implements ClientInterface
      */
     public function addTopicSubscription($topic_id, $recipients_tokens)
     {
-        return $this->processTopicSubscription($topic_id, $recipients_tokens, self::DEFAULT_TOPIC_ADD_SUBSCRIPTION_API_URL);
+        return $this->processTopicSubscription(
+            $topic_id,
+            $recipients_tokens,
+            self::DEFAULT_TOPIC_ADD_SUBSCRIPTION_API_URL
+        );
     }
 
 
@@ -91,7 +96,11 @@ class Client implements ClientInterface
      */
     public function removeTopicSubscription($topic_id, $recipients_tokens)
     {
-        return $this->processTopicSubscription($topic_id, $recipients_tokens, self::DEFAULT_TOPIC_REMOVE_SUBSCRIPTION_API_URL);
+        return $this->processTopicSubscription(
+            $topic_id,
+            $recipients_tokens,
+            self::DEFAULT_TOPIC_REMOVE_SUBSCRIPTION_API_URL
+        );
     }
 
 
@@ -104,8 +113,9 @@ class Client implements ClientInterface
      */
     protected function processTopicSubscription($topic_id, $recipients_tokens, $url)
     {
-        if (!is_array($recipients_tokens))
+        if (!is_array($recipients_tokens)) {
             $recipients_tokens = [$recipients_tokens];
+        }
 
         return $this->guzzleClient->post(
             $url,

@@ -1,12 +1,13 @@
 <?php
 
-namespace sngrl\PhpFirebaseCloudMessaging\Tests;
+namespace Tests\Feature;
 
-use sngrl\PhpFirebaseCloudMessaging\Message;
-use sngrl\PhpFirebaseCloudMessaging\Notification;
-use sngrl\PhpFirebaseCloudMessaging\Recipient\Topic;
-use sngrl\PhpFirebaseCloudMessaging\Recipient\Device;
-use sngrl\PhpFirebaseCloudMessaging\Recipient\Recipient;
+use Tests\TestCase;
+use Sngrl\PhpFirebaseCloudMessaging\Message;
+use Sngrl\PhpFirebaseCloudMessaging\Notification;
+use Sngrl\PhpFirebaseCloudMessaging\Recipient\Topic;
+use Sngrl\PhpFirebaseCloudMessaging\Recipient\Device;
+use Sngrl\PhpFirebaseCloudMessaging\Recipient\Recipient;
 
 class MessageTest extends TestCase
 {
@@ -22,7 +23,9 @@ class MessageTest extends TestCase
     {
         $this->expectException(\InvalidArgumentException::class);
         $this->fixture->addRecipient(new Topic('breaking-news'))
-            ->addRecipient(new Recipient());
+            ->addRecipient(new class() extends Recipient
+            {
+            });
     }
 
     public function testThrowsExceptionWhenNoRecepientWasAdded()

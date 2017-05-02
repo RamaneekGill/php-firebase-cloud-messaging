@@ -1,9 +1,10 @@
 <?php
-namespace sngrl\PhpFirebaseCloudMessaging;
 
-use sngrl\PhpFirebaseCloudMessaging\Recipient\Recipient;
-use sngrl\PhpFirebaseCloudMessaging\Recipient\Topic;
-use sngrl\PhpFirebaseCloudMessaging\Recipient\Device;
+namespace Sngrl\PhpFirebaseCloudMessaging;
+
+use Sngrl\PhpFirebaseCloudMessaging\Recipient\Recipient;
+use Sngrl\PhpFirebaseCloudMessaging\Recipient\Topic;
+use Sngrl\PhpFirebaseCloudMessaging\Recipient\Device;
 
 /**
  * @author sngrl
@@ -19,7 +20,8 @@ class Message implements \JsonSerializable
     private $jsonData;
 
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->jsonData = [];
     }
 
@@ -75,7 +77,8 @@ class Message implements \JsonSerializable
      * @param mixed $value
      * @return $this
      */
-    public function setJsonKey($key, $value) {
+    public function setJsonKey($key, $value)
+    {
         $this->jsonData[$key] = $value;
         return $this;
     }
@@ -86,7 +89,8 @@ class Message implements \JsonSerializable
      * @param string $key
      * @return $this
      */
-    public function unsetJsonKey($key) {
+    public function unsetJsonKey($key)
+    {
         unset($this->jsonData[$key]);
         return $this;
     }
@@ -97,7 +101,8 @@ class Message implements \JsonSerializable
      * @param string $key
      * @return mixed
      */
-    public function getJsonKey($key) {
+    public function getJsonKey($key)
+    {
         return $this->jsonData[$key];
     }
 
@@ -106,7 +111,8 @@ class Message implements \JsonSerializable
      *
      * @return array
      */
-    public function getJsonData() {
+    public function getJsonData()
+    {
         return $this->jsonData;
     }
 
@@ -116,7 +122,8 @@ class Message implements \JsonSerializable
      * @param array $array
      * @return $this
      */
-    public function setJsonData($array) {
+    public function setJsonData($array)
+    {
         $this->jsonData = $array;
         return $this;
     }
@@ -165,8 +172,9 @@ class Message implements \JsonSerializable
             case Topic::class:
                 if (count($this->recipients) > 1) {
                     throw new \UnexpectedValueException(
-                        'Currently messages to target multiple topics do not work, but its obviously planned: '.
-                        'https://firebase.google.com/docs/cloud-messaging/topic-messaging#sending_topic_messages_from_the_server'
+                        'Currently messages to target multiple topics do not work, ' .
+                        'but its obviously planned: https://firebase.google.com/docs/' .
+                        'cloud-messaging/topic-messaging#sending_topic_messages_from_the_server'
                     );
                 }
                 return sprintf('/topics/%s', current($this->recipients)->getName());
@@ -178,7 +186,10 @@ class Message implements \JsonSerializable
 
                 break;
             default:
-                throw new \UnexpectedValueException('PhpFirebaseCloudMessaging only supports single topic and single device messages yet');
+                throw new \UnexpectedValueException(
+                    'PhpFirebaseCloudMessaging only supports single topic and ' .
+                    'single device messages yet'
+                );
                 break;
         }
         return null;

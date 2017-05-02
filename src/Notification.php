@@ -1,5 +1,6 @@
 <?php
-namespace sngrl\PhpFirebaseCloudMessaging;
+
+namespace Sngrl\PhpFirebaseCloudMessaging;
 
 /**
  * @link https://firebase.google.com/docs/cloud-messaging/http-server-ref#notification-payload-support
@@ -17,10 +18,12 @@ class Notification extends Message
 
     public function __construct($title = '', $body = '')
     {
-        if ($title)
+        if ($title) {
             $this->title = $title;
-        if ($body)
+        }
+        if ($body) {
             $this->body = $body;
+        }
         parent::__construct();
     }
 
@@ -110,7 +113,7 @@ class Notification extends Message
         }
         if ($this->content_available) {
             $jsonData['content_available'] = $this->content_available;
-        }        
+        }
         return $jsonData;
     }
 }

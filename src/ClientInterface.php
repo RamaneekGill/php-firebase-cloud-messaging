@@ -1,5 +1,6 @@
 <?php
-namespace sngrl\PhpFirebaseCloudMessaging;
+
+namespace Sngrl\PhpFirebaseCloudMessaging;
 
 use GuzzleHttp;
 
@@ -19,8 +20,8 @@ interface ClientInterface
      *
      * @return \sngrl\PhpFirebaseCloudMessaging\Client
      */
-    function setApiKey($apiKey);
-    
+    public function setApiKey($apiKey);
+
 
     /**
      * people can overwrite the api url with a proxy server url of their own
@@ -29,7 +30,7 @@ interface ClientInterface
      *
      * @return \sngrl\PhpFirebaseCloudMessaging\Client
      */
-    function setProxyApiUrl($url);
+    public function setProxyApiUrl($url);
 
     /**
      * sends your notification to the google servers and returns a guzzle repsonse object
@@ -40,7 +41,5 @@ interface ClientInterface
      * @return \Psr\Http\Message\ResponseInterface
      * @throws \GuzzleHttp\Exception\RequestException
      */
-    function send(Message $message);
-    
+    public function send(Message $message);
 }
-   

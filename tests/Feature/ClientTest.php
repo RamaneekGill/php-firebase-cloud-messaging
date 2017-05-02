@@ -1,13 +1,14 @@
 <?php
 
-namespace sngrl\PhpFirebaseCloudMessaging\Tests;
+namespace Tests\Feature;
 
 use Mockery;
 use GuzzleHttp;
+use Tests\TestCase;
 use GuzzleHttp\Psr7\Response;
-use sngrl\PhpFirebaseCloudMessaging\Client;
-use sngrl\PhpFirebaseCloudMessaging\Message;
-use sngrl\PhpFirebaseCloudMessaging\Recipient\Topic;
+use Sngrl\PhpFirebaseCloudMessaging\Client;
+use Sngrl\PhpFirebaseCloudMessaging\Message;
+use Sngrl\PhpFirebaseCloudMessaging\Recipient\Topic;
 
 class ClientTest extends TestCase
 {

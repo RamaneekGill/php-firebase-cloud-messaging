@@ -1,8 +1,9 @@
 <?php
 
-namespace sngrl\PhpFirebaseCloudMessaging\Tests;
+namespace Tests\Feature;
 
-use sngrl\PhpFirebaseCloudMessaging\Notification;
+use Tests\TestCase;
+use Sngrl\PhpFirebaseCloudMessaging\Notification;
 
 class NotificationTest extends TestCase
 {
@@ -34,6 +35,9 @@ class NotificationTest extends TestCase
     public function testJsonSerializeWithContentAvailable()
     {
         $this->fixture->setContentAvailable(true);
-        $this->assertEquals(array('title' => 'foo', 'body' =>'bar', 'content_available' => true), $this->fixture->jsonSerialize());
+        $this->assertEquals(
+            ['title' => 'foo', 'body' =>'bar', 'content_available' => true],
+            $this->fixture->jsonSerialize()
+        );
     }
 }
