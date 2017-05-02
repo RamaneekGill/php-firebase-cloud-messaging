@@ -3,3 +3,6 @@ vendor
 .buildpath
 .settings
 .idea
+.DS_Store
+coverage
+.php_cs.cache
