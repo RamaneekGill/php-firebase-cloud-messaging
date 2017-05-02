@@ -19,7 +19,8 @@ class Message implements \JsonSerializable
     private $jsonData;
 
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->jsonData = [];
     }
 
@@ -75,7 +76,8 @@ class Message implements \JsonSerializable
      * @param mixed $value
      * @return $this
      */
-    public function setJsonKey($key, $value) {
+    public function setJsonKey($key, $value)
+    {
         $this->jsonData[$key] = $value;
         return $this;
     }
@@ -86,7 +88,8 @@ class Message implements \JsonSerializable
      * @param string $key
      * @return $this
      */
-    public function unsetJsonKey($key) {
+    public function unsetJsonKey($key)
+    {
         unset($this->jsonData[$key]);
         return $this;
     }
@@ -97,7 +100,8 @@ class Message implements \JsonSerializable
      * @param string $key
      * @return mixed
      */
-    public function getJsonKey($key) {
+    public function getJsonKey($key)
+    {
         return $this->jsonData[$key];
     }
 
@@ -106,7 +110,8 @@ class Message implements \JsonSerializable
      *
      * @return array
      */
-    public function getJsonData() {
+    public function getJsonData()
+    {
         return $this->jsonData;
     }
 
@@ -116,7 +121,8 @@ class Message implements \JsonSerializable
      * @param array $array
      * @return $this
      */
-    public function setJsonData($array) {
+    public function setJsonData($array)
+    {
         $this->jsonData = $array;
         return $this;
     }

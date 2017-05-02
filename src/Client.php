@@ -104,8 +104,9 @@ class Client implements ClientInterface
      */
     protected function processTopicSubscription($topic_id, $recipients_tokens, $url)
     {
-        if (!is_array($recipients_tokens))
+        if (!is_array($recipients_tokens)) {
             $recipients_tokens = [$recipients_tokens];
+        }
 
         return $this->guzzleClient->post(
             $url,
